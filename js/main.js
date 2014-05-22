@@ -49,6 +49,18 @@ function updateNbSignatures() {
 	$('#counter').html(counters);
 }
 
+// text regex
+function isText(str) {
+	var regex = /^[a-zA-Z]*$/;
+	return regex.test(str);
+}
+
+// alphanumeric regex
+function isAlphaNumeric(str) {
+	var regex = /^[a-zA-Z0-9]*$/;
+	return regex.test(str);
+}
+
 // email regex
 function isEmail(str) {
 	var regex = /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/;
@@ -73,6 +85,7 @@ $(document).ready(function() {
 	
 		// get inputs
 		var data = {};
+		data.csrf = $('#CSRFName').val();
 		data.name = $('#signName').val();
 		data.firstname = $('#signFirstname').val();
 		data.email = $('#signEmail').val();
@@ -82,11 +95,10 @@ $(document).ready(function() {
 		data.response = $('#recaptcha_response_field').val();
 		
 		//validate inputs
-		if(data.name.length > 100) invalidInput('signName');
-		else if(data.firstname.length > 100) invalidInput('signFirstname');
-		else if(data.email.length > 100 || !isEmail(data.email)) invalidInput('signEmail');
-		else if(data.country.length > 100) invalidInput('signCountry');
-		else if(data.zipcode.length > 100) invalidInput('signZipcode');
+		if(!isText(data.name)) invalidInput('signName');
+		else if(!isText(data.firstname)) invalidInput('signFirstname');
+		else if(!isEmail(data.email)) invalidInput('signEmail');
+		else if(!isAlphaNumeric(data.zipcode)) invalidInput('signZipcode');
 		else 
 		{
 			// if everything OK, send to API
