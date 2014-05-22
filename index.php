@@ -20,9 +20,9 @@
 					<p class="punchline red">Si vous soutenez l'équipe de France, soutenez l'Équipe, <strong>signez cette pétition</strong></p>
 					<div class="inputs">
 						<input id=CSRFName name=CSRFName type="hidden" value="CSRF329433830_672749989">
-						<input id=signName name=signName class="full" type="text" placeholder="NOM" required>
-						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="PRENOM" required>
-						<input id=signEmail name=signEmail class="full" type="email" placeholder="EMAIL"required>
+						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
+						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="Prénom" required>
+						<input id=signEmail name=signEmail class="full" type="email" placeholder="Email"required>
 						
 						<select id=signCountry name=signCountry class="half" required>
 							<option value="France" selected>France</option>
@@ -220,7 +220,7 @@
 							<option value="Zimbabwe">Zimbabwe</option>
 						</select>
 						
-						<input id=signZipcode name=signZipcode class="half" type="text" placeholder="CODE POSTAL" required>
+						<input id=signZipcode name=signZipcode class="half" type="text" placeholder="Code Postal" required>
 					</div>
 					
 					<div id=captcha></div>
@@ -255,8 +255,8 @@
 			
 			<div id=social class="centered">
 				<p class="red">Partagez la pétition</p>
-				<a href="">T</a>
-				<a href="">f</a>
+				<a href="#">T</a>
+				<a href="#">f</a>
 			</div>
 			
 		</section>
