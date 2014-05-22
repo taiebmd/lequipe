@@ -30,10 +30,9 @@ function showSuccess(nb) {
 }
 
 // refresh the nb of  signatures
-function updateNbSignatures() {
-
+function updateProgress() {
 	// REPLACE BY AJAX  CALL !!!
-	nbSignatures = Math.floor(Math.random()*1000000);
+	nbSignatures = Math.floor(Math.random()*2000000);
 	
 	var split = (nbSignatures+'').split('');
 	var counters = '';
@@ -57,7 +56,7 @@ function isText(str) {
 
 // alphanumeric regex
 function isAlphaNumeric(str) {
-	var regex = /^[a-zA-Z0-9]*$/;
+	var regex = /^[a-zA-Z0-9 ]*$/;
 	return regex.test(str);
 }
 
@@ -76,7 +75,8 @@ $(document).ready(function() {
 
 	//init
 	createReCaptcha();
-	updateNbSignatures();
+	updateProgress();
+	var worker = setInterval(updateProgress, 5000);
 	
 	// form submit
 	$('#petitionForm').submit(function(e) {
@@ -95,10 +95,10 @@ $(document).ready(function() {
 		data.response = $('#recaptcha_response_field').val();
 		
 		//validate inputs
-		if(!isText(data.name)) invalidInput('signName');
-		else if(!isText(data.firstname)) invalidInput('signFirstname');
-		else if(!isEmail(data.email)) invalidInput('signEmail');
-		else if(!isAlphaNumeric(data.zipcode)) invalidInput('signZipcode');
+		if(data.name.length > 999 || !isText(data.name)) invalidInput('signName');
+		else if(data.firstname.length > 999 || !isText(data.firstname)) invalidInput('signFirstname');
+		else if(data.email.length > 999 || !isEmail(data.email)) invalidInput('signEmail');
+		else if(data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) invalidInput('signZipcode');
 		else 
 		{
 			// if everything OK, send to API
