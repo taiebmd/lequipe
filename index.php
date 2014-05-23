@@ -235,7 +235,7 @@
 				<hr class="dotted">
 				
 				<div id=pdf class="centered">
-					<p>Téléchargez, imprimez, et remplissez la pétition pour faire signer tous vos proches</p>
+					<p>Téléchargez, imprimez,<br>et remplissez la pétition pour faire<br>signer tous vos proches</p>
 					<button>Téléchargez le pdf</button>
 				</div>
 				
@@ -245,11 +245,26 @@
 			
 			<div id=petitionThanks class="centered">
 			
-				<p class="red"><strong>Merci</strong> de votre soutien</p>
+				<p class="red">
+					<strong>
+						<span class="huge">Merci</span><br>
+						de votre soutien
+					</strong>
+				</p>
 				<hr class="thick">
-				<p class="red">Vous êtes le <strong id=senderNb></strong> participant à avoir signé en ligne !</p>
+				<p class="red">
+					Vous êtes le<br>
+					<strong id=senderNb class="huge"></strong><br>
+					participant<br>
+					à avoir signé en ligne !
+				</p>
 				<hr class="thick">
-				<p>N'hésitez pas à faire signer cette pétition autour de vous</p>
+				<p>
+					N'hésitez pas<br>
+					à faire signer<br>
+					cette pétition<br>
+					autour de vous
+				</p>
 				
 			</div>
 			
