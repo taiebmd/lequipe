@@ -3,7 +3,7 @@ class DBUtils {
 	private $con;
 	
 	public function __construct() {
-		$con = mysql_connect("localhost", "sfeir", "sfeir123m");
+		$con = mysql_connect("192.168.1.104", "sfeir", "sfeir123m");
 		if (!$con) die("Could not connect: " . mysql_error());
 		mysql_select_db("sfeir", $con) or die(mysql_error());
 	}

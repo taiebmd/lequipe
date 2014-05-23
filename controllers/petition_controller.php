@@ -17,6 +17,7 @@ class petitionController {
 	}
 	
 	function post($params, $data) {
+		
 		return new RestResponse(200, $this->db->insert("petitions", $data));
 	}
 	
