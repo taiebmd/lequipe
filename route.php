@@ -36,6 +36,9 @@ while ($uri_chunks[$i]) {
 	array_push($params, $uri_chunks[$i++]);
 }
 
+// Coded in hard
+$controller_file_name = 'petition';
+
 // Create a new instance of the given controller and call the given method with the given parameters
 if (file_exists("controllers/" . $controller_file_name . "_controller.php")) {
 	require_once("controllers/" . $controller_file_name . "_controller.php");
@@ -48,7 +51,7 @@ if (file_exists("controllers/" . $controller_file_name . "_controller.php")) {
 		$response = new RestResponse(405, json_encode(array("errorMessage" => "Method not found")));
 	}
 	RestUtils::sendResponse($response);
-} else {
-	include 'html/petition.php';
 }
+
+RestUtils::sendResponse($response);
 ?>
