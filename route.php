@@ -1,17 +1,5 @@
 <?php
-require_once ('utils/recaptchalib.php');
 require_once ("utils/rest_utils.php");
-
-
-$privatekey = "6LdIzOoSAAAAANtnJTzZb3lfJSQtf-O96YVfyvFd";
-$resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"], $_POST["recaptcha_response_field"]);
-
-if (!$resp -> is_valid) {
-	$response = new RestResponse(405, json_encode(array("errorMessage" => "reCAPTCHA invalid")));
-	RestUtils::sendResponse($response);
-	die();
-}
-
 
 $base_url = "/lequipe/";
 function to_camel_case($str) {
