@@ -156,7 +156,6 @@ class DBUtils {
 	
 	private function prepare_delete($table_name) {
 		$query = "DELETE FROM $table_name ";
-		
 		return $query;
 	}
 	
@@ -185,7 +184,6 @@ class DBUtils {
 	
 	private function prepare_order_by($order_by_params) {
 		$query = "";
-		
 		$i = 0;
 		if ($order_by_params) {
 			foreach ($order_by_params as $value) {
