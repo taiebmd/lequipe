@@ -1,4 +1,8 @@
-﻿<!doctype html>
+﻿<?php
+error_reporting(E_ALL);
+$_SESSION["CSRF"] = mt_rand();
+?>
+<!doctype html>
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
@@ -20,7 +24,7 @@
 				<form id=petitionForm class="centered">
 					<p class="punchline red">Si vous soutenez l'équipe de France, soutenez l'Équipe, <strong>signez cette pétition</strong></p>
 					<div class="inputs">
-						<input id=CSRFName name=CSRFName type="hidden" value="CSRF329433830_672749989">
+						<input id=CSRFName name=CSRFName type="hidden" value="CSRF_<?php echo $_SESSION["CSRF"];?>">
 						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
 						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="Prénom" required>
 						<input id=signEmail name=signEmail class="full" type="email" placeholder="Email"required>
