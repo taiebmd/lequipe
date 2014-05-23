@@ -1,8 +1,5 @@
 'use strict';
 
-// number of current signatures
-var nbSignatures = 0;
-
 // build the ReCaptcha panel
 function createReCaptcha() {
 	if(Recaptcha) {
@@ -39,35 +36,35 @@ function showSuccess(nb) {
 	updateProgress();
 }
 
-// refresh the nb of  signatures
+// refresh the progress header
+function drawProgress(nbSignatures) {
+
+	var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
+	
+	var split = (nbSignatures+'').split('');
+	var counters = '';
+	
+	for(var i=0; i<split.length; i++) {
+		if(i>0 && (split.length - i)%3 == 0) {
+			// number spacing
+			counters += '<span class="counter-space"></span>';
+		}
+		counters += '<span class="counter-num">' + split[i] + '</span>';
+	}
+	
+	$('#counter').html(counters);
+	$('#remaining').html(remaining);
+	
+	$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
+}
+
+// get the nb of signatures
 function updateProgress() {
 	$.ajax({
 		type: 'GET',
 		url: 'route.php',
 		success: function(data) {
-
-			nbSignatures = data.count;
-			nbSignatures = undefined;
-			if(nbSignatures)
-			{
-				var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
-				
-				var split = (nbSignatures+'').split('');
-				var counters = '';
-				
-				for(var i=0; i<split.length; i++) {
-					if(i>0 && (split.length - i)%3 == 0) {
-						// number spacing
-						counters += '<span class="counter-space"></span>';
-					}
-					counters += '<span class="counter-num">' + split[i] + '</span>';
-				}
-				
-				$('#counter').html(counters);
-				$('#remaining').html(remaining);
-				
-				$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
-			}
+			if(data.count) drawProgress(data.count);
 		},
 		error: function(e) {
 			console.log('ERROR - GET count', e.responseText);

@@ -30,7 +30,7 @@
 			<p class="indent">Cordialement,</p>
 			
 			<div class="centered">
-				<img class="equipe-logo" src="img/placeholder.png">
+				<img class="logo-equipe" src="img/logo-equipe.png">
 			</div>
 			
 			<p class="legal">

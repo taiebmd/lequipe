@@ -71,6 +71,7 @@ button {
 
 #sectionLeft h2 {
 	text-transform: uppercase;
+	font-size: 1.4em;
 	text-align: center;
 	margin: 0 0 40px 0;
 }
@@ -87,7 +88,7 @@ p.legal {
 	text-align: justify;
 }
 
-.equipe-logo {
+.logo-equipe {
 	margin-bottom: 20px;
 }
 
