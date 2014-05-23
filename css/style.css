@@ -1,7 +1,7 @@
 /* BASICS ------------------------------------------ */
 
 html {
-	background: silver;
+	background-color: silver;
 	font-family: 'Roboto Slab', serif;
 }
 
@@ -9,7 +9,7 @@ body {
 	margin: 0;
 	padding: 40px 20px;
 	width: 960px;
-	background: white;
+	background-color: white;
 }
 
 p {
@@ -36,7 +36,7 @@ button {
 }
 
 .invalid {
-	border-color: red !important;
+	border-color: rgb(214, 0, 0) !important;
 }
 :invalid {
 	box-shadow: none !important;
@@ -47,18 +47,48 @@ button {
 
 #sectionLeft {
 	float: left;
-	width: 640px;
-	background: rgb(243,243,243);
+	margin-right: 20px;
+	padding: 0 50px;
+	width: 540px;
 }
 
 #sectionRight {
-	float: right;
+	float: left;
 	width: 260px;
 	padding: 30px 20px;
-	background: rgb(243,243,243);
+	background-color: rgb(243,243,243);
 }
 
-/* PETITION HEADER ------------------------------------------ */
+/* PETITION TEXT ------------------------------------------ */
+
+#sectionLeft h1 {
+	text-transform: uppercase;
+	font-size: 4.5em;
+	text-align: center;
+	text-decoration: underline;
+	margin: 0 0 40px 0;
+}
+
+#sectionLeft h2 {
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 40px 0;
+}
+
+p.indent {
+	font-size:.9em;
+	text-indent: 35px;
+	margin-bottom: 30px;
+	text-align: justify;
+}
+
+p.legal {
+	font-size: .5em;
+	font-style: italic;
+	text-align: justify;
+}
+
+/* FORM HEADER ------------------------------------------ */
 
 #progress {
 	margin-bottom: 30px;
@@ -80,10 +110,8 @@ button {
 	font-size: 25px;
 	line-height: 45px;
 	text-align: center;
-	background: black linear-gradient(rgb(85, 85, 85), black);
-}
-.counter-num:last-child {
-	margin-right: 0;
+	background-color: black;
+	background: linear-gradient(rgb(85, 85, 85), black);
 }
 
 .counter-space {
@@ -130,7 +158,7 @@ input.half { width: 101px; }
 
 button.sign {
 	color: white;
-	background: rgb(214, 0, 0);
+	background-color: rgb(214, 0, 0);
 	padding: 10px 15px;
 	font-size: .95em;
 }
@@ -143,7 +171,7 @@ button.sign {
 }
 #recaptcha_table {
 	display: block;
-	background: white;
+	background-color: white;
 	width: 100% !important;
 	border-radius: 5px;
 	border-color: silver !important;
@@ -151,20 +179,11 @@ button.sign {
 #recaptcha_table td {
 	float: left;
 }
-#recaptcha_table tr:first-of-type {
-	height: 64px !important;
-}
-#recaptcha_table tr:first-of-type td:nth-child(2) {
-	padding: 7px 0 !important;
-}
-#recaptcha_table tr:first-of-type td:nth-child(3) {
-	padding: 19px 7px !important;
-}
 .recaptcha_image_cell {
 	display: block;
 	width: 155px !important;
 	height: 48px !important;
-	background: transparent !important;
+	background-color: transparent !important;
 }
 #recaptcha_image {
 	width: 155px !important;
@@ -199,7 +218,7 @@ iframe {
 
 #pdf button {
 	color: white;
-	background: rgb(51, 51, 51);
+	background-color: rgb(51, 51, 51);
 	padding: 8px 15px;
 }
 
@@ -211,7 +230,7 @@ iframe {
 	text-transform: uppercase;
 }
 
-#petitionThanks p:last-of-type {
+.bottomMsg {
 	margin-bottom: 30px;
 }
 
@@ -222,13 +241,15 @@ iframe {
 	margin-bottom: 10px;
 }
 
-#social a {
+a.social-btn {
 	display: inline-block;
 	width: 30px; height: 30px;
 	line-height: 30px;
+	font-size: 1.2em;
+	font-weight: bold;
 	color: white;
 	text-decoration: none;
-	background: rgb(51, 51, 51);
+	background-color: rgb(51, 51, 51);
 	border-radius: 50%;
 }
 

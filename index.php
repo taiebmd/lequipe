@@ -3,21 +3,42 @@ error_reporting(E_ALL);
 $_SESSION["CSRF"] = mt_rand();
 ?>
 <!doctype html>
-<html>
+<!--[if lt IE 7 ]> <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>  <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
 	<head>
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100" rel="stylesheet" type="text/css">
+		<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<section id=sectionLeft>
-			TEST
-		</section>
-		<section id=sectionRight>
+	
+		<div id=sectionLeft>
+			<h1>Pétition</h1>
+			<h2>
+				Monsieur le Président de la République,<br>
+				Mesdames et Messieurs les Ministres,
+			</h2>
+			<p class="indent">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id aliquet eros, sit amet fringilla sapien. Praesent ullamcorper, nisl quis aliquam sodales, justo leo malesuada diam, sed rhoncus nibh tellus a massa. Nulla laoreet congue fringilla. Nunc nec tempor lorem. Proin ultricies sapien ultricies risus fringilla, ac elementum metus hendrerit. Praesent dictum massa ut egestas porttitor. Fusce sem sem, luctus non enim vel, scelerisque pellentesque tellus.
+			</p>
+			<p class="indent">
+				Ut luctus, metus ac mollis venenatis, dui massa volutpat lectus, ac vestibulum eros enim nec neque. Integer venenatis condimentum risus a blandit. Sed ante felis, facilisis at tempus sed, ullamcorper nec libero. Mauris cursus ante ac venenatis commodo. Sed vitae turpis quis arcu facilisis porta. Quisque ac massa lorem. Nam quam massa, varius a tempus sit amet, porttitor et erat.
+			</p>
+			<p class="indent">C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition</p>
+			<p class="indent">Cordialement,</p>
+			<img src="img/placeholder.png" class="equipe-logo">
+			<p class="legal">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id aliquet eros, sit amet fringilla sapien. Praesent ullamcorper, nisl quis aliquam sodales, justo leo malesuada diam, sed rhoncus nibh tellus a massa. Nulla laoreet congue fringilla. Nunc nec tempor lorem. Proin ultricies sapien ultricies risus fringilla, ac elementum metus hendrerit. Praesent dictum massa ut egestas porttitor. Fusce sem sem, luctus non enim vel, scelerisque pellentesque tellus.
+			</p>
+		</div>
+		
+		<div id=sectionRight>
 		
 			<div id=progress class="centered">
 				<div id=counter></div>
-				<p class="italic">Encore 74965 signatures pour atteindre notre but</p>
+				<p id=remaining class="italic"></p>
 			</div>
 			
 			<div id=petitionMain>
@@ -234,14 +255,14 @@ $_SESSION["CSRF"] = mt_rand();
 						Tous les champs sont obligatoires.<br>
 						Chaque participant ne peut signer la pétition qu'une seule fois.
 					</p>
-					<button class="sign">Signez la pétition</button>
+					<button class="sign" title="Signez la pétition">Signez la pétition</button>
 				</form>
 				
 				<hr class="dotted">
 				
 				<div id=pdf class="centered">
 					<p>Téléchargez, imprimez,<br>et remplissez la pétition pour faire<br>signer tous vos proches</p>
-					<button>Téléchargez le pdf</button>
+					<button title="Téléchargez le pdf">Téléchargez le pdf</button>
 				</div>
 				
 				<hr class="dotted">
@@ -264,7 +285,7 @@ $_SESSION["CSRF"] = mt_rand();
 					à avoir signé en ligne !
 				</p>
 				<hr class="thick">
-				<p>
+				<p class="bottomMsg">
 					N'hésitez pas<br>
 					à faire signer<br>
 					cette pétition<br>
@@ -275,11 +296,13 @@ $_SESSION["CSRF"] = mt_rand();
 			
 			<div id=social class="centered">
 				<p class="red">Partagez la pétition</p>
-				<a href="#">T</a>
-				<a href="#">f</a>
+				<a class="social-btn twitter" href="#" title="Partager sur Twitter">
+					<span class="fi-social-twitter"></span>
+				</a>
+				<a class="social-btn facebook" href="#" title="Partager sur Facebook">f</a>
 			</div>
 			
-		</section>
+		</div>
 		<div class="clear"></div>
 		
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
