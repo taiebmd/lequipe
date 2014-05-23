@@ -119,7 +119,7 @@ $(document).ready(function() {
 	placeholderFix();
 	createReCaptcha();
 	updateProgress();
-	//var worker = setInterval(updateProgress, 5000);
+	var worker = setInterval(updateProgress, 2000);
 	
 	// form submit
 	$('#petitionForm').submit(function(e) {
@@ -164,7 +164,6 @@ $(document).ready(function() {
 		// if everything OK, send to API
 		if(!invalid)
 		{
-			// REPLACE BY AJAX  CALL !!!
 			console.log('submitted', data);
 			
 			$.ajax({
@@ -173,6 +172,7 @@ $(document).ready(function() {
 				data: data,
 				success: function(data) {
 					console.log(data);
+					showSuccess(data.id);
 				},
 				error: function(e) {
 					console.log(e.responseText);
