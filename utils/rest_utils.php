@@ -77,6 +77,8 @@ class RestUtils {
 				$data = $_GET;
 				break;
 			case "post":
+				$data = $_POST;
+				break;
 			case "put":
 				$data = json_decode(file_get_contents("php://input"), true);
 				break;

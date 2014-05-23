@@ -1,6 +1,6 @@
 ﻿<?php
-error_reporting(E_ALL);
-$_SESSION["CSRF"] = mt_rand();
+	session_start();
+	$_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie7"> <![endif]-->
@@ -28,7 +28,11 @@ $_SESSION["CSRF"] = mt_rand();
 			</p>
 			<p class="indent">C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition</p>
 			<p class="indent">Cordialement,</p>
-			<img src="img/placeholder.png" class="equipe-logo">
+			
+			<div class="centered">
+				<img class="equipe-logo" src="img/placeholder.png">
+			</div>
+			
 			<p class="legal">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id aliquet eros, sit amet fringilla sapien. Praesent ullamcorper, nisl quis aliquam sodales, justo leo malesuada diam, sed rhoncus nibh tellus a massa. Nulla laoreet congue fringilla. Nunc nec tempor lorem. Proin ultricies sapien ultricies risus fringilla, ac elementum metus hendrerit. Praesent dictum massa ut egestas porttitor. Fusce sem sem, luctus non enim vel, scelerisque pellentesque tellus.
 			</p>
@@ -45,7 +49,7 @@ $_SESSION["CSRF"] = mt_rand();
 				<form id=petitionForm class="centered">
 					<p class="punchline red">Si vous soutenez l'équipe de France, soutenez l'Équipe, <strong>signez cette pétition</strong></p>
 					<div class="inputs">
-						<input id=CSRFName name=CSRFName type="hidden" value="CSRF_<?php echo $_SESSION["CSRF"];?>">
+						<input id=CSRFName name=CSRFName type="hidden" value="<?php echo $_SESSION["CSRF"];?>">
 						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
 						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="Prénom" required>
 						<input id=signEmail name=signEmail class="full" type="email" placeholder="Email"required>

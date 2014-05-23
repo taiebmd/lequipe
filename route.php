@@ -1,5 +1,9 @@
 <?php
+session_start();
+
 require_once ("utils/rest_utils.php");
+
+error_reporting(0);
 
 $base_url = "/lequipe/";
 function to_camel_case($str) {

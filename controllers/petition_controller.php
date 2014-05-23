@@ -15,7 +15,7 @@ class petitionController {
 	function post($params, $data) {
 		// CSRF security
 		if ($_SESSION['CSRF'] != $data['csrf']) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "CSRF invalid")));
+			$response = new RestResponse(405, json_encode(array("errorMessage" => json_encode($_SESSION))));
 			RestUtils::sendResponse($response);
 			die();
 		}
@@ -24,7 +24,7 @@ class petitionController {
 		
 		// Recaptcha security
 		$privatekey = "6LdIzOoSAAAAANtnJTzZb3lfJSQtf-O96YVfyvFd";
-		$resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $data["recaptcha_challenge_field"], $data["recaptcha_response_field"]);
+		$resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $data["challenge"], $data["response"]);
 
 		if (!$resp -> is_valid) {
 			$response = new RestResponse(405, json_encode(array("errorMessage" => "reCAPTCHA invalid")));
@@ -32,8 +32,8 @@ class petitionController {
 			die();
 		}
 		
-		unset($data['recaptcha_challenge_field']);
-		unset($data['recaptcha_response_field']);
+		unset($data['challenge']);
+		unset($data['response']);
 
 
 		// Check if email exists

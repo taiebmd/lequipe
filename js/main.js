@@ -35,11 +35,12 @@ function showSuccess(nb) {
 	
 	$('#petitionMain').hide();
 	$('#petitionThanks').show();
+	
+	updateProgress();
 }
 
 // refresh the nb of  signatures
 function updateProgress() {
-
 	$.ajax({
 		type: 'GET',
 		url: 'route.php',
@@ -65,7 +66,7 @@ function updateProgress() {
 			$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
 		},
 		error: function(e) {
-			console.log(e.responseText);
+			console.log('ERROR - GET count', e.responseText);
 		}
 	});
 }
@@ -140,11 +141,11 @@ $(document).ready(function() {
 		//validate inputs
 		var invalid = false;
 		if(data.name.length < 2 || data.name.length > 999 || !isText(data.name)) {
-			invalidInput('signName'); 
+			invalidInput('signName');
 			invalid = true;
 		}
 		if(data.firstname.length < 2 || data.firstname.length > 999 || !isText(data.firstname)) {
-			invalidInput('signFirstname'); 
+			invalidInput('signFirstname');
 			invalid = true;
 		}
 		if(data.email.length > 999 || !isEmail(data.email)) {
@@ -152,7 +153,11 @@ $(document).ready(function() {
 			invalid = true;
 		}
 		if(data.zipcode.length < 2 || data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) {
-			invalidInput('signZipcode'); 
+			invalidInput('signZipcode');
+			invalid = true;
+		}
+		if(data.response.length == '') {
+			invalidInput('recaptcha_response_field');
 			invalid = true;
 		}
 		

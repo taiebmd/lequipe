@@ -81,11 +81,14 @@ p.indent {
 	margin-bottom: 30px;
 	text-align: justify;
 }
-
 p.legal {
 	font-size: .5em;
 	font-style: italic;
 	text-align: justify;
+}
+
+.equipe-logo {
+	margin-bottom: 20px;
 }
 
 /* FORM HEADER ------------------------------------------ */
