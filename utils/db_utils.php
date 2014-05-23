@@ -11,17 +11,13 @@ class DBUtils {
 	public function search($table_name, $where_params = null, $order_by_params = null) {
 		$entries = array();
 		
-		$query = $this->prepare_select($table_name);
-		$query .= $this->prepare_where($where_params);
-		$query .= $this->prepare_order_by($order_by_params);
-		
-		$result = $this->execute($query);
+		$result = $this->execute("SELECT COUNT(*) as count FROM " .$table_name);
 		
 		while ($entry = $this->fetch($result)) {
 			array_push($entries, $entry);
 		}
 		
-		return $entries;
+		return $entries[0];
 	}
 	
 	public function get($table_name, $id) {
