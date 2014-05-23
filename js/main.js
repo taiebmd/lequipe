@@ -47,23 +47,27 @@ function updateProgress() {
 		success: function(data) {
 
 			nbSignatures = data.count;
-			var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
-			
-			var split = (nbSignatures+'').split('');
-			var counters = '';
-			
-			for(var i=0; i<split.length; i++) {
-				if(i>0 && (split.length - i)%3 == 0) {
-					// number spacing
-					counters += '<span class="counter-space"></span>';
+			nbSignatures = undefined;
+			if(nbSignatures)
+			{
+				var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
+				
+				var split = (nbSignatures+'').split('');
+				var counters = '';
+				
+				for(var i=0; i<split.length; i++) {
+					if(i>0 && (split.length - i)%3 == 0) {
+						// number spacing
+						counters += '<span class="counter-space"></span>';
+					}
+					counters += '<span class="counter-num">' + split[i] + '</span>';
 				}
-				counters += '<span class="counter-num">' + split[i] + '</span>';
+				
+				$('#counter').html(counters);
+				$('#remaining').html(remaining);
+				
+				$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
 			}
-			
-			$('#counter').html(counters);
-			$('#remaining').html(remaining);
-			
-			$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
 		},
 		error: function(e) {
 			console.log('ERROR - GET count', e.responseText);
