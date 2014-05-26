@@ -1,6 +1,6 @@
 <?php
 /**
- * Function to check if email adress is vali
+ * Function to check if an email address is valid
  *
  * @param string email adress
  * @return boolean true if email is valid
@@ -10,17 +10,7 @@ function checkEmailAdress($adresse) {
 		return false;
 	}
 	
-	//Caractères non-ASCII autorisés dans un nom de domaine .eu :
-	$nonASCII = 'ďđēĕėęěĝğġģĥħĩīĭįıĵķĺļľŀłńņňŉŋōŏőoeŕŗřśŝsťŧ';
-	$nonASCII .= 'ďđēĕėęěĝğġģĥħĩīĭįıĵķĺļľŀłńņňŉŋōŏőoeŕŗřśŝsťŧ';
-	$nonASCII .= 'ũūŭůűųŵŷźżztșțΐάέήίΰαβγδεζηθικλμνξοπρςστυφ';
-	$nonASCII .= 'χψωϊϋόύώабвгдежзийклмнопрстуфхцчшщъыьэюяt';
-	$nonASCII .= 'ἀἁἂἃἄἅἆἇἐἑἒἓἔἕἠἡἢἣἤἥἦἧἰἱἲἳἴἵἶἷὀὁὂὃὄὅὐὑὒὓὔ';
-	$nonASCII .= 'ὕὖὗὠὡὢὣὤὥὦὧὰάὲέὴήὶίὸόὺύὼώᾀᾁᾂᾃᾄᾅᾆᾇᾐᾑᾒᾓᾔᾕᾖᾗ';
-	$nonASCII .= 'ᾠᾡᾢᾣᾤᾥᾦᾧᾰᾱᾲᾳᾴᾶᾷῂῃῄῆῇῐῑῒΐῖῗῠῡῢΰῤῥῦῧῲῳῴῶῷ';
-	
-	// note : 1 caractète non-ASCII vos 2 octets en UTF-8
-	$syntaxe = "#^[[:alnum:][:punct:]]{1,64}@[[:alnum:]-.$nonASCII]{2,253}\.[[:alpha:].]{2,6}$#";
+	$syntaxe = "/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/";
 
 	if (preg_match($syntaxe, $adresse)) {
 		return true;
@@ -29,14 +19,31 @@ function checkEmailAdress($adresse) {
 	}
 }
 
+/**
+ * Check Name & First Name
+ * 
+ * @param string name or firstName
+ * @return boolean true if name is valid
+ */
 function checkValidName($name) {
-	if (!preg_match("#^[:alnum:]{2, 99}$#", $name) || strlen($name) > 100 ) {
-		return false;
+	if(preg_match("/^[[:alpha:]( |\.)]{2,99}$/",$name)) {
+		return true;
 	}
+	
+	return false;
 }
 
+
+/**
+ * Check if the zip code is valid
+ * 
+ * @param string zip code
+ * @return boolean true if the zip code is valid
+ */
 function checkZipCode ($zip) {
-	if (!preg_match("#^[[:alnum:]( |-)]{2, 99}$#", $name) || strlen($name) > 100 ) {
-		return false;
+	if (preg_match("/^[a-zA-Z0-9 -]{2,99}$/",$zip)) {
+		return true;
 	}
+	
+	return false;
 }

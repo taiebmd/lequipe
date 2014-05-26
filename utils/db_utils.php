@@ -8,7 +8,7 @@ class DBUtils {
 		mysql_select_db("sfeir", $con) or die(mysql_error());
 	}
 	
-	public function search($table_name, $where_params = null, $order_by_params = null) {
+	public function countPetitons($table_name, $where_params = null, $order_by_params = null) {
 		$entries = array();
 		
 		$result = $this->execute("SELECT COUNT(*) as count FROM " .$table_name);
@@ -20,11 +20,11 @@ class DBUtils {
 		return $entries[0];
 	}
 	
-	public function get($table_name, $id) {
+	public function getByEmail($table_name, $id) {
 		$entry = null;
 		
 		$query = $this->prepare_select($table_name);
-		$query .= $this->prepare_where(array("id" => $id));
+		$query .= $this->prepare_where(array("email" => $id));
 		
 		$result = $this->execute($query);
 		$entry = $this->fetch($result);
