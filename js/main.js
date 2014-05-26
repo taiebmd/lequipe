@@ -134,7 +134,7 @@ function cleanForm() {
 
 // invalid input field
 function invalidInput(id, msg) {
-	$('#'+id).addClass('invalid');
+	if(id != '') $('#'+id).addClass('invalid');
 	$('#inputErrors').append('<div class="inputError">'+msg+'</div>');
 }
 
@@ -243,7 +243,7 @@ $(document).ready(function() {
 						console.log('ERROR - POST', e.responseText);
 						var status = $.parseJSON(e.responseText);
 						
-						if(status.errorMessage == 'CSRF invalid') invalidInput('recaptcha_response_field', 'La session a expiré.<br>Veuillez rafraîchir la page.');
+						if(status.errorMessage == 'CSRF invalid') invalidInput('', 'La session a expiré.<br>Veuillez rafraîchir la page.');
 						else if(status.errorMessage == 'reCAPTCHA invalid') invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
 						else if(status.errorMessage == 'e-mail invalid') invalidInput('signEmail', 'Le champ "Email" est invalide.');
 						else if(status.errorMessage == 'e-mail exists') invalidInput('signEmail', 'Cette adresse email est déjà utilisée.');

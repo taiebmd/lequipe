@@ -30,9 +30,7 @@
 				<img class="logo-equipe" src="img/logo-equipe.png">
 			</div>
 			
-			<p class="legal">
-				Ces informations, recueillies par SAS L’ÉQUIPE, font l’objet d’un traitement informatique destiné à l’élaboration et la présentation de la pétition au gouvernement. Les destinataires des données sont SAS L’ÉQUIPE. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à «LA PÉTITION» SAS L’ÉQUIPE 4 COURS DE L’ILE SEGUIN 92130 BOULOGNE BILLANCOURT. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.	
-			</p>
+			<p class="legal">Ces informations, recueillies par SAS L’ÉQUIPE, font l’objet d’un traitement informatique destiné à l’élaboration et la présentation de la pétition au gouvernement. Les destinataires des données sont SAS L’ÉQUIPE. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à «LA PÉTITION» SAS L’ÉQUIPE 4 COURS DE L’ILE SEGUIN 92130 BOULOGNE BILLANCOURT. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.	</p>
 		</div>
 		
 		<div id=sectionRight>
