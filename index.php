@@ -1,4 +1,5 @@
 ﻿<?php
+	error_reporting(0);
 	session_start();
 	$_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 ?>
@@ -17,8 +18,8 @@
 		<div id=sectionLeft>
 			<h1>Pétition</h1>
 			<h2>
-				Monsieur le Président de la République,<br>
-				Mesdames et Messieurs les Ministres,
+				<b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,<br>
+				<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>,
 			</h2>
 			<p class="indent">Le 13 juillet 2014 se déroulera la finale de la Coupe du monde. Dans l'éventualité d'une victoire de la France, nous demandons à ce que <strong>le mardi 15 juillet soit déclaré jour férié.</strong> Le 14 juillet étant déjà comme chacun sait, un jour non travaillé.</p>
 			<p class="indent">La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un atre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.</p>
@@ -30,7 +31,7 @@
 			</div>
 			
 			<p class="legal">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id aliquet eros, sit amet fringilla sapien. Praesent ullamcorper, nisl quis aliquam sodales, justo leo malesuada diam, sed rhoncus nibh tellus a massa. Nulla laoreet congue fringilla. Nunc nec tempor lorem. Proin ultricies sapien ultricies risus fringilla, ac elementum metus hendrerit. Praesent dictum massa ut egestas porttitor. Fusce sem sem, luctus non enim vel, scelerisque pellentesque tellus.
+				Ces informations, recueillies par SAS L’ÉQUIPE, font l’objet d’un traitement informatique destiné à l’élaboration et la présentation de la pétition au gouvernement. Les destinataires des données sont SAS L’ÉQUIPE. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à «LA PÉTITION» SAS L’ÉQUIPE 4 COURS DE L’ILE SEGUIN 92130 BOULOGNE BILLANCOURT. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.	
 			</p>
 		</div>
 		

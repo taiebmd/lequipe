@@ -1,7 +1,7 @@
 /* BASICS ------------------------------------------ */
 
 html {
-	background-color: silver;
+	background-color: #c3c3c3;
 	font-family: 'Roboto Slab', serif;
 }
 
@@ -66,32 +66,37 @@ button:focus {
 
 #sectionLeft h1 {
 	text-transform: uppercase;
-	font-size: 4.5em;
+	font-size: 72px;
 	text-align: center;
 	text-decoration: underline;
 	margin: 0 0 40px 0;
 }
 
 #sectionLeft h2 {
-	text-transform: uppercase;
-	font-size: 1.4em;
+	font-weight: normal;
+	font-size: 16px;
 	text-align: center;
 	margin: 0 0 40px 0;
 }
 
+#sectionLeft h2 b {
+	font-weight: bolder;
+	font-size: 22px;
+}
+
 p.indent {
-	font-size:.9em;
+	font-size:14px;
 	text-indent: 35px;
 	margin-bottom: 30px;
 	text-align: justify;
 	line-height: 20px;
 }
 p.indent strong {
-	font-size: 1.4em;
+	font-size: 22px;
 	text-decoration: underline;
 }
 p.legal {
-	font-size: .5em;
+	font-size: 10px;
 	font-style: italic;
 	text-align: justify;
 }
@@ -108,7 +113,7 @@ p.legal {
 }
 #progress p {
 	margin: 0 -20px;
-	font-size: .7em;
+	font-size: 12px;
 }
 
 #counter {
@@ -141,22 +146,28 @@ p.legal {
 }
 
 .punchline {
-	margin: 0 10px 30px 10px;
+	margin: 0 0 30px;
 	text-transform: uppercase;
-	line-height: 19px;
+	line-height: 18px;
+	font-size: 18px;
 }
 
 input, select {
-	margin: 0 0 15px 0;
+	margin: 0 0 15px;
 	padding: 7px 10px;
-	border: 1px solid silver;
+	border: 1px solid #c3c3c3;
 	border-radius: 4px;
+	font-size: 14px;
 }
 .full {
 	display: block;
 	width: 238px;
 }
-select.half { width: 123px; }
+select.half { 
+	width: 123px;
+	display: inline-block;
+	height: 34px;	
+}
 input.half { width: 101px; }
 
 #signCountry {
@@ -164,10 +175,9 @@ input.half { width: 101px; }
 }
 
 .instructions {
-	font-size: .5em;
-	text-align: left;
-	letter-spacing: .3px;
-	margin-bottom: 20px;
+    font-size: 10px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 button.sign {
@@ -175,7 +185,7 @@ button.sign {
 	color: white;
 	background-color: rgb(214, 0, 0);
 	padding: 10px 15px;
-	font-size: .95em;
+	font-size: 20px;
 }
 
 .inputError {
@@ -211,7 +221,7 @@ button.sign {
 	background-color: white;
 	width: 100% !important;
 	border-radius: 5px;
-	border-color: silver !important;
+	border-color: #c3c3c3 !important;
 }
 #recaptcha_table td {
 	float: left;
@@ -248,15 +258,17 @@ iframe {
 
 #pdf p {
 	font-weight: bold;
-	font-size: 0.8em;
+	font-size: 14px;
 	margin: 0 10px 10px 10px;
 	line-height: 15px;
+	font-size: 14px;
 }
 
 #pdf button {
 	color: white;
 	background-color: rgb(51, 51, 51);
 	padding: 8px 15px;
+	font-size: 14px;
 }
 
 /* THANKS ------------------------------------------ */
@@ -276,6 +288,7 @@ iframe {
 #social p {
 	text-transform: uppercase;
 	margin-bottom: 10px;
+	font-size: 18px;
 }
 
 a.social-btn {
