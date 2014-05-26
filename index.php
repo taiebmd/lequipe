@@ -22,7 +22,7 @@
 				<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>,
 			</h2>
 			<p class="indent">Le 13 juillet 2014 se déroulera la finale de la Coupe du monde. Dans l'éventualité d'une victoire de la France, nous demandons à ce que <strong>le mardi 15 juillet soit déclaré jour férié.</strong> Le 14 juillet étant déjà comme chacun sait, un jour non travaillé.</p>
-			<p class="indent">La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un atre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.</p>
+			<p class="indent">La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un autre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.</p>
 			<p class="indent">C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition</p>
 			<p class="indent">Cordialement,</p>
 			
