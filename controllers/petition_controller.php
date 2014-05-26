@@ -16,7 +16,7 @@ class petitionController {
 	function post($params, $data) {
 		// CSRF security
 		if ($_SESSION['CSRF'] != $data['csrf']) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => json_encode($_SESSION))));
+			$response = new RestResponse(405, json_encode(array("errorMessage" => "CSRF invalid")));
 			RestUtils::sendResponse($response);
 			return;
 		}
@@ -54,13 +54,6 @@ class petitionController {
 		// Validate name
 		if (!checkValidName($data['name'])) {
 			$response = new RestResponse(405, json_encode(array("errorMessage" => "name invalid")));
-			RestUtils::sendResponse($response);
-			return;
-		}
-		
-		// Validate firstName
-		if (!checkValidName($data['firstname'])) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "firstname invalid")));
 			RestUtils::sendResponse($response);
 			return;
 		}
