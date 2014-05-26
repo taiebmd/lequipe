@@ -31,7 +31,7 @@ function createCookie(data) {
 		count: data.count,
 		email: data.email
 	};
-	setCookie('petitionEquipe', JSON.stringify(cookie), 365);
+	setCookie('petitionEquipe', $.toJSON(cookie), 365);
 }
 
 // build the ReCaptcha panel
@@ -172,7 +172,7 @@ function placeholderFix() {
 $(document).ready(function() {
 
 	// check cookie
-	var cookie = JSON.parse(getCookie('petitionEquipe'));
+	var cookie = $.parseJSON(getCookie('petitionEquipe'));
 	if(cookie) {
 		showSuccess(cookie.count);
 	}
@@ -241,9 +241,10 @@ $(document).ready(function() {
 					},
 					error: function(e) {
 						console.log('ERROR - POST', e.responseText);
-						var status = JSON.parse(e.responseText);
+						var status = $.parseJSON(e.responseText);
 						
-						if(status.errorMessage == 'reCAPTCHA invalid') invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
+						if(status.errorMessage == 'CSRF invalid') invalidInput('recaptcha_response_field', 'La session a expiré.<br>Veuillez rafraîchir la page.');
+						else if(status.errorMessage == 'reCAPTCHA invalid') invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
 						else if(status.errorMessage == 'e-mail invalid') invalidInput('signEmail', 'Le champ "Email" est invalide.');
 						else if(status.errorMessage == 'e-mail exists') invalidInput('signEmail', 'Cette adresse email est déjà utilisée.');
 						else if(status.errorMessage == 'name invalid') invalidInput('signName', 'Le champ "Nom" est invalide.');

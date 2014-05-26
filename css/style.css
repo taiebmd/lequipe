@@ -179,7 +179,7 @@ button.sign {
 }
 
 .inputError {
-	height: 20px; line-height: 20px;
+	line-height: 20px;
 	font-size: .75em;
 	margin-bottom: 5px;
 	background-color: rgb(217, 83, 79);

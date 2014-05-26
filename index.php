@@ -312,7 +312,7 @@
 		
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js" type="text/javascript"></script>
-		<!--[if lt IE 8 ]> <script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.3.1/json3.min.js" type="text/javascript"></script> <![endif]-->
+		<script src="js/json.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
 		
 	</body>
