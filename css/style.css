@@ -95,15 +95,10 @@ p.indent strong {
 	text-decoration: underline;
 }
 p.legal {
-	position: absolute;
-	padding-right: 50px;
-	bottom: 40px;
-	width: 540px;
-	font-size: 10px;
-	font-style: italic;
-	text-align: justify;
+    font-size: 10px;
+    font-style: italic;
+    text-align: justify;
 }
-
 .logo-equipe {
 	margin-bottom: 20px;
 }
@@ -299,7 +294,9 @@ iframe {
 .centered { text-align: center; }
 .italic { font-style: italic; }
 .red { color: rgb(214, 0, 0); }
-.huge { font-size: 1.5em; }
+.huge {
+	font-size: 40px;
+}
 .clear { clear: both; }
 
 
@@ -322,4 +319,8 @@ iframe {
 
 .addthis_32x32_style .at15t_twitter {
 	background-position: 0 0 !important;
+}
+
+#petitionThanks p {
+	font-size: 18px;
 }
