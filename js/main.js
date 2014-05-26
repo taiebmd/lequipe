@@ -232,6 +232,7 @@ $(document).ready(function() {
 					type: 'POST',
 					url: 'route.php',
 					data: data,
+					timeout: 2000,
 					success: function(data) {
 						if(data) {
 							createCookie(data);
