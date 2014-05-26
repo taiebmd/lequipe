@@ -45,6 +45,8 @@
 				<form id=petitionForm class="centered">
 					<p class="punchline red">Si vous soutenez l'équipe de France, <strong>signez cette pétition</strong></p>
 					<div class="inputs">
+						<div id=inputErrors></div>
+						
 						<input id=CSRFName name=CSRFName type="hidden" value="<?php echo $_SESSION["CSRF"];?>">
 						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
 						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="Prénom" required>

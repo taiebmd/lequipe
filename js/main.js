@@ -43,7 +43,9 @@ function createReCaptcha() {
 				lang : 'fr',
 				theme : 'clean',
 				callback: function() {
-					$('#recaptcha_response_field').attr('required', true);
+					$('#recaptcha_response_field')
+						.attr('style', '')
+						.attr('required', true);
 					
 					 // IE8 hacks
 					var tr1 = $('#recaptcha_table tr').first();
@@ -124,9 +126,28 @@ function isEmail(str) {
 	return regex.test(str);
 }
 
+// clean errors from form
+function cleanForm() {
+	$('#inputErrors').empty();
+	$('.invalid').removeClass('invalid');
+}
+
 // invalid input field
-function invalidInput(id) {
+function invalidInput(id, msg) {
 	$('#'+id).addClass('invalid');
+	$('#inputErrors').append('<div class="inputError">'+msg+'</div>');
+}
+
+// start ajax loader
+function startLoader() {
+	$('.sign').hide();
+	$('.ajaxLoader').show();
+}
+
+// stop ajax loader
+function stopLoader() {
+	$('.ajaxLoader').hide();
+	$('.sign').show();
 }
 
 // fix for placeholders in IE <= 9
@@ -165,11 +186,10 @@ $(document).ready(function() {
 		$('#petitionForm').submit(function(e) {
 		
 			e.preventDefault();
-			$('.invalid').removeClass('invalid');
 			
-			// hide button + show loader
-			$('.sign').hide();
-			$('.ajaxLoader').show();
+			// clean errors + start loader
+			cleanForm();
+			startLoader();
 		
 			// get inputs
 			var data = {};
@@ -185,23 +205,23 @@ $(document).ready(function() {
 			//validate inputs
 			var invalid = false;
 			if(data.name.length < 2 || data.name.length > 999 || !isText(data.name)) {
-				invalidInput('signName');
+				invalidInput('signName', 'Le champ "Nom" est invalide.');
 				invalid = true;
 			}
 			if(data.firstname.length < 2 || data.firstname.length > 999 || !isText(data.firstname)) {
-				invalidInput('signFirstname');
+				invalidInput('signFirstname', 'Le champ "Prénom" est invalide.');
 				invalid = true;
 			}
 			if(data.email.length > 999 || !isEmail(data.email)) {
-				invalidInput('signEmail');
+				invalidInput('signEmail', 'Le champ "Email" est invalide.');
 				invalid = true;
 			}
 			if(data.zipcode.length < 2 || data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) {
-				invalidInput('signZipcode');
+				invalidInput('signZipcode', 'Le champ "Code Postal" est invalide.');
 				invalid = true;
 			}
 			if(data.response.length == '') {
-				invalidInput('recaptcha_response_field');
+				invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
 				invalid = true;
 			}
 			
@@ -213,17 +233,29 @@ $(document).ready(function() {
 					url: 'route.php',
 					data: data,
 					success: function(data) {
-						createCookie(data);
-						showSuccess(data.count);
+						if(data) {
+							createCookie(data);
+							showSuccess(data.count);
+						}
+						stopLoader();
 					},
 					error: function(e) {
 						console.log('ERROR - POST', e.responseText);
+						var status = JSON.parse(e.responseText);
+						
+						if(status.errorMessage == 'reCAPTCHA invalid') invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
+						else if(status.errorMessage == 'e-mail invalid') invalidInput('signEmail', 'Le champ "Email" est invalide.');
+						else if(status.errorMessage == 'e-mail exists') invalidInput('signEmail', 'Cette adresse email est déjà utilisée.');
+						else if(status.errorMessage == 'name invalid') invalidInput('signName', 'Le champ "Nom" est invalide.');
+						else if(status.errorMessage == 'firstname invalid') invalidInput('signFirstname', 'Le champ "Prénom" est invalide.');
+						else if(status.errorMessage == 'zipcode invalid') invalidInput('signZipcode', 'Le champ "Code Postal" est invalide.');
+					
+						stopLoader();
 					}
-				}).done(function() {
-					// hide loader + show button
-					$('.ajaxLoader').hide();
-					$('.sign').show();
 				});
+			}
+			else {
+				stopLoader();
 			}
 			
 			return false;

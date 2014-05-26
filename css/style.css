@@ -34,6 +34,9 @@ button {
 	border-radius: 0;
 	cursor: pointer;
 }
+button:focus {
+	outline: 0;
+}
 
 .invalid {
 	border-color: rgb(214, 0, 0) !important;
@@ -175,9 +178,21 @@ button.sign {
 	font-size: .95em;
 }
 
+.inputError {
+	height: 20px; line-height: 20px;
+	font-size: .75em;
+	margin-bottom: 5px;
+	background-color: rgb(217, 83, 79);
+	color: white;
+	border-radius: 4px;
+}
+.inputError:last-child {
+	margin-bottom: 15px;
+}
+
 .ajaxLoader {
 	display: none;
-	height: 30px;
+	height: 31px;
 	padding: 5px;
 	text-align: center;
 }
@@ -219,7 +234,7 @@ button.sign {
 	padding: 0 5px;
 	width: 232px !important;
 	border-radius: 0;
-	border-color: rgb(223, 223, 223) !important;
+	border: 1px solid rgb(223, 223, 223);
 	outline: 0 !important;
 }
 #recaptcha_logo {
