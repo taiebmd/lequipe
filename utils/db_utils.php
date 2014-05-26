@@ -1,11 +1,19 @@
 <?php
+require_once realpath(dirname(__FILE__)).'/opsworks.php';
+
 class DBUtils {
 	private $con;
 	
 	public function __construct() {
-		$con = mysql_connect("192.168.1.104", "sfeir", "sfeir123m");
+		$opsworks = new OpsWorks();
+		$hostname = $opsworks->db->host;
+		$database = $opsworks->db->database;
+		$username = $opsworks->db->username;
+		$password = $opsworks->db->password;
+		
+		$con = mysql_connect($hostname, $username, $password);
 		if (!$con) die("Could not connect: " . mysql_error());
-		mysql_select_db("sfeir", $con) or die(mysql_error());
+		mysql_select_db($database, $con) or die(mysql_error());
 	}
 	
 	public function countPetitons($table_name, $where_params = null, $order_by_params = null) {
