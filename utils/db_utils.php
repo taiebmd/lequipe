@@ -1,90 +1,91 @@
 <?php
-require_once realpath(dirname(__FILE__)).'/opsworks.php';
+require_once realpath(dirname(__FILE__)) . '/opsworks.php';
 
 class DBUtils {
 	private $con;
-	
+
 	public function __construct() {
-		$opsworks = new OpsWorksDb();
-		$hostname = $opsworks->host;
-		$database = $opsworks->database;
-		$username = $opsworks->username;
-		$password = $opsworks->password;
-		
+		$opsworks = new OpsWorks();
+		$hostname = $opsworks -> db -> host;
+		$database = $opsworks -> db -> database;
+		$username = $opsworks -> db -> username;
+		$password = $opsworks -> db -> password;
+
 		$con = mysql_connect($hostname, $username, $password);
-		if (!$con) die("Could not connect: " . mysql_error());
+		if (!$con)
+			die("Could not connect: " . mysql_error());
 		mysql_select_db($database, $con) or die(mysql_error());
 	}
-	
+
 	public function countPetitons($table_name, $where_params = null, $order_by_params = null) {
 		$entries = array();
-		
-		$result = $this->execute("SELECT COUNT(*) as count FROM " .$table_name);
-		
-		while ($entry = $this->fetch($result)) {
+
+		$result = $this -> execute("SELECT COUNT(*) as count FROM " . $table_name);
+
+		while ($entry = $this -> fetch($result)) {
 			array_push($entries, $entry);
 		}
-		
+
 		return $entries[0];
 	}
-	
+
 	public function getByEmail($table_name, $id) {
 		$entry = null;
-		
-		$query = $this->prepare_select($table_name);
-		$query .= $this->prepare_where(array("email" => $id));
-		
-		$result = $this->execute($query);
-		$entry = $this->fetch($result);
+
+		$query = $this -> prepare_select($table_name);
+		$query .= $this -> prepare_where(array("email" => $id));
+
+		$result = $this -> execute($query);
+		$entry = $this -> fetch($result);
 
 		return $entry;
 	}
-	
+
 	public function insert($table_name, $entry) {
-		$query = $this->prepare_insert($table_name, $entry);
+		$query = $this -> prepare_insert($table_name, $entry);
 
-		$this->execute($query);
-		
-		$entry["id"] = $this->auto_increment_id();
-		
+		$this -> execute($query);
+
+		$entry["id"] = $this -> auto_increment_id();
+
 		return $entry;
 	}
-	
+
 	public function update($table_name, $entry) {
-		$query = $this->prepare_update($table_name, $entry);
-		$query .= $this->prepare_where(array("id" => $entry["id"]));
-		
-		$this->execute($query);
-		
+		$query = $this -> prepare_update($table_name, $entry);
+		$query .= $this -> prepare_where(array("id" => $entry["id"]));
+
+		$this -> execute($query);
+
 		return $entry;
 	}
-	
+
 	public function delete($table_name, $id) {
-		$query = $this->prepare_delete($table_name);
-		$query .= $this->prepare_where(array("id" => $id));
-		
-		$this->execute($query);
+		$query = $this -> prepare_delete($table_name);
+		$query .= $this -> prepare_where(array("id" => $id));
+
+		$this -> execute($query);
 	}
-	
+
 	public function execute($query) {
 		return mysql_query($query);
 	}
-	
+
 	public function escape($value) {
 		return mysql_real_escape_string($value);
 	}
-	
+
 	public function fetch($result) {
 		return mysql_fetch_assoc($result);
 	}
-	
+
 	public function auto_increment_id() {
 		return mysql_insert_id();
 	}
-	
+
 	private function prepare_select($table_name, $column_names = array("*")) {
 		$query = "";
-		
+
 		$i = 0;
 		foreach ($column_names as $value) {
 			if ($i++ == 0) {
@@ -94,15 +95,15 @@ class DBUtils {
 			}
 			$query .= $value . " ";
 		}
-		
+
 		$query .= "FROM $table_name ";
-		
+
 		return $query;
 	}
-	
+
 	private function prepare_insert($table_name, $insert_params) {
 		$query = "INSERT INTO $table_name (";
-		
+
 		$i = 0;
 		foreach (array_keys($insert_params) as $key) {
 			if ($i++ > 0) {
@@ -110,9 +111,9 @@ class DBUtils {
 			}
 			$query .= $key;
 		}
-		
+
 		$query .= ") VALUES (";
-		
+
 		$i = 0;
 		foreach (array_values($insert_params) as $value) {
 			if ($i++ > 0) {
@@ -120,7 +121,7 @@ class DBUtils {
 			}
 			if (!is_null($value)) {
 				if ($value != "now()") {
-					$query .= "'" . $this->escape($value) . "'";
+					$query .= "'" . $this -> escape($value) . "'";
 				} else {
 					$query .= $value;
 				}
@@ -128,15 +129,15 @@ class DBUtils {
 				$query .= "null";
 			}
 		}
-		
+
 		$query .= ")";
-		
+
 		return $query;
 	}
-	
+
 	private function prepare_update($table_name, $set_params) {
 		$query = "UPDATE $table_name ";
-		
+
 		$i = 0;
 		foreach ($set_params as $key => $value) {
 			if ($i++ == 0) {
@@ -146,7 +147,7 @@ class DBUtils {
 			}
 			if (!is_null($value)) {
 				if ($value != "now()") {
-					$query .= "$key = '" . $this->escape($value) . "'";
+					$query .= "$key = '" . $this -> escape($value) . "'";
 				} else {
 					$query .= "$key = $value";
 				}
@@ -154,18 +155,18 @@ class DBUtils {
 				$query .= "$key = null";
 			}
 		}
-		
+
 		return $query . " ";
 	}
-	
+
 	private function prepare_delete($table_name) {
 		$query = "DELETE FROM $table_name ";
 		return $query;
 	}
-	
+
 	private function prepare_where($where_params) {
 		$query = "";
-		
+
 		$i = 0;
 		if ($where_params) {
 			foreach ($where_params as $key => $value) {
@@ -174,18 +175,18 @@ class DBUtils {
 				} else {
 					$query .= "AND ";
 				}
-				
+
 				if (!is_null($value)) {
-					$query .= "$key = '" . $this->escape($value) . "' ";
+					$query .= "$key = '" . $this -> escape($value) . "' ";
 				} else {
 					$query .= "$key IS NULL ";
 				}
 			}
 		}
-		
+
 		return $query;
 	}
-	
+
 	private function prepare_order_by($order_by_params) {
 		$query = "";
 		$i = 0;
@@ -199,8 +200,9 @@ class DBUtils {
 				$query .= $value;
 			}
 		}
-		
+
 		return $query;
 	}
+
 }
 ?>
