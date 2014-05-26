@@ -81,6 +81,11 @@ p.indent {
 	text-indent: 35px;
 	margin-bottom: 30px;
 	text-align: justify;
+	line-height: 20px;
+}
+p.indent strong {
+	font-size: 1.4em;
+	text-decoration: underline;
 }
 p.legal {
 	font-size: .5em;

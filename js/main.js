@@ -28,7 +28,7 @@ function deleteCookie(cname) {
 // create petition cookie
 function createCookie(data) {
 	var cookie = {
-		id: data.id,
+		count: data.count,
 		email: data.email
 	};
 	setCookie('petitionEquipe', JSON.stringify(cookie), 365);
@@ -153,7 +153,7 @@ $(document).ready(function() {
 	// check cookie
 	var cookie = JSON.parse(getCookie('petitionEquipe'));
 	if(cookie) {
-		showSuccess(cookie.id);
+		showSuccess(cookie.count);
 	}
 	else {
 		//init
@@ -214,7 +214,7 @@ $(document).ready(function() {
 					data: data,
 					success: function(data) {
 						createCookie(data);
-						showSuccess(data.id);
+						showSuccess(data.count);
 					},
 					error: function(e) {
 						console.log('ERROR - POST', e.responseText);
