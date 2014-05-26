@@ -5,11 +5,11 @@ class DBUtils {
 	private $con;
 	
 	public function __construct() {
-		$opsworks = new OpsWorks();
-		$hostname = $opsworks->db->host;
-		$database = $opsworks->db->database;
-		$username = $opsworks->db->username;
-		$password = $opsworks->db->password;
+		$opsworks = new OpsWorksDb();
+		$hostname = $opsworks->host;
+		$database = $opsworks->database;
+		$username = $opsworks->username;
+		$password = $opsworks->password;
 		
 		$con = mysql_connect($hostname, $username, $password);
 		if (!$con) die("Could not connect: " . mysql_error());

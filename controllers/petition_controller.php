@@ -16,7 +16,7 @@ class petitionController {
 	function post($params, $data) {
 		// CSRF security
 		if ($_SESSION['CSRF'] != $data['csrf']) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "CSRF invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "CSRF invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
@@ -28,7 +28,7 @@ class petitionController {
 		$resp = recaptcha_check_answer($privatekey, $_SERVER["REMOTE_ADDR"], $data["challenge"], $data["response"]);
 
 		if (!$resp -> is_valid) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "reCAPTCHA invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "reCAPTCHA invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
@@ -39,35 +39,35 @@ class petitionController {
 
 		// Check if email exists
 		if (!checkEmailAdress($data['email'])) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "e-mail invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "e-mail invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
 		
 		// Validate Email address
 		if ($this->db->getByEmail("petitions", $data['email']) != null) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "e-mail exists")));
+			$response = new RestResponse(405, array("errorMessage" => "e-mail exists"));
 			RestUtils::sendResponse($response);
 			return;
 		}
 		
 		// Validate name
 		if (!checkValidName($data['name'])) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "name invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "name invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
 		
 		// Validate firstName
 		if (!checkValidName($data['firstname'])) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "firstname invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "firstname invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
 		
 		// Validate zipCode
 		if (!checkZipCode($data['zipcode'])) {
-			$response = new RestResponse(405, json_encode(array("errorMessage" => "zipcode invalid")));
+			$response = new RestResponse(405, array("errorMessage" => "zipcode invalid"));
 			RestUtils::sendResponse($response);
 			return;
 		}
