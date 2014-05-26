@@ -1,5 +1,39 @@
 'use strict';
 
+// create cookie
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+// get cookie
+function getCookie(cname) {
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) 
+	{
+		var c = ca[i].trim();
+		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	}
+	return null;
+}
+
+// delete cookie
+function deleteCookie(cname) {
+	document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+// create petition cookie
+function createCookie(data) {
+	var cookie = {
+		id: data.id,
+		email: data.email
+	};
+	setCookie('petitionEquipe', JSON.stringify(cookie), 365);
+}
+
 // build the ReCaptcha panel
 function createReCaptcha() {
 	if(Recaptcha) {
@@ -116,72 +150,85 @@ function placeholderFix() {
 
 $(document).ready(function() {
 
-	//init
-	placeholderFix();
-	createReCaptcha();
-	updateProgress();
-	var worker = setInterval(updateProgress, 2000);
-	
-	// form submit
-	$('#petitionForm').submit(function(e) {
-	
-		e.preventDefault();
-		$('.invalid').removeClass('invalid');
-	
-		// get inputs
-		var data = {};
-		data.csrf = $('#CSRFName').val();
-		data.name = $('#signName').val();
-		data.firstname = $('#signFirstname').val();
-		data.email = $('#signEmail').val();
-		data.country = $('#signCountry').val();
-		data.zipcode = $('#signZipcode').val();
-		data.challenge = $('#recaptcha_challenge_field').val();
-		data.response = $('#recaptcha_response_field').val();
+	// check cookie
+	var cookie = JSON.parse(getCookie('petitionEquipe'));
+	if(cookie) {
+		showSuccess(cookie.id);
+	}
+	else {
+		//init
+		placeholderFix();
+		createReCaptcha();
+		updateProgress();
 		
-		//validate inputs
-		var invalid = false;
-		if(data.name.length < 2 || data.name.length > 999 || !isText(data.name)) {
-			invalidInput('signName');
-			invalid = true;
-		}
-		if(data.firstname.length < 2 || data.firstname.length > 999 || !isText(data.firstname)) {
-			invalidInput('signFirstname');
-			invalid = true;
-		}
-		if(data.email.length > 999 || !isEmail(data.email)) {
-			invalidInput('signEmail');
-			invalid = true;
-		}
-		if(data.zipcode.length < 2 || data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) {
-			invalidInput('signZipcode');
-			invalid = true;
-		}
-		if(data.response.length == '') {
-			invalidInput('recaptcha_response_field');
-			invalid = true;
-		}
+		// form submit
+		$('#petitionForm').submit(function(e) {
 		
-		// if everything OK, send to API
-		if(!invalid)
-		{
-			console.log('submitted', data);
+			e.preventDefault();
+			$('.invalid').removeClass('invalid');
 			
-			$.ajax({
-				type: 'POST',
-				url: 'route.php',
-				data: data,
-				success: function(data) {
-					console.log(data);
-					showSuccess(data.id);
-				},
-				error: function(e) {
-					console.log(e.responseText);
-				}
-			});
-		}
+			// hide button + show loader
+			$('.sign').hide();
+			$('.ajaxLoader').show();
 		
-		return false;
-	});
-
+			// get inputs
+			var data = {};
+			data.csrf = $('#CSRFName').val();
+			data.name = $('#signName').val();
+			data.firstname = $('#signFirstname').val();
+			data.email = $('#signEmail').val();
+			data.country = $('#signCountry').val();
+			data.zipcode = $('#signZipcode').val();
+			data.challenge = $('#recaptcha_challenge_field').val();
+			data.response = $('#recaptcha_response_field').val();
+			
+			//validate inputs
+			var invalid = false;
+			if(data.name.length < 2 || data.name.length > 999 || !isText(data.name)) {
+				invalidInput('signName');
+				invalid = true;
+			}
+			if(data.firstname.length < 2 || data.firstname.length > 999 || !isText(data.firstname)) {
+				invalidInput('signFirstname');
+				invalid = true;
+			}
+			if(data.email.length > 999 || !isEmail(data.email)) {
+				invalidInput('signEmail');
+				invalid = true;
+			}
+			if(data.zipcode.length < 2 || data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) {
+				invalidInput('signZipcode');
+				invalid = true;
+			}
+			if(data.response.length == '') {
+				invalidInput('recaptcha_response_field');
+				invalid = true;
+			}
+			
+			// if everything OK, send to API
+			if(!invalid)
+			{
+				$.ajax({
+					type: 'POST',
+					url: 'route.php',
+					data: data,
+					success: function(data) {
+						createCookie(data);
+						showSuccess(data.id);
+					},
+					error: function(e) {
+						console.log('ERROR - POST', e.responseText);
+					}
+				}).done(function() {
+					// hide loader + show button
+					$('.ajaxLoader').hide();
+					$('.sign').show();
+				});
+			}
+			
+			return false;
+		});
+	}
+	
+	var worker = setInterval(updateProgress, 2000);
 });

@@ -95,6 +95,7 @@ p.legal {
 /* FORM HEADER ------------------------------------------ */
 
 #progress {
+	height: 70px;
 	margin-bottom: 30px;
 }
 #progress p {
@@ -103,6 +104,7 @@ p.legal {
 }
 
 #counter {
+	height: 45px;
 	margin-bottom: 10px;
 }
 .counter-num {
@@ -161,10 +163,21 @@ input.half { width: 101px; }
 }
 
 button.sign {
+	position: relative;
 	color: white;
 	background-color: rgb(214, 0, 0);
 	padding: 10px 15px;
 	font-size: .95em;
+}
+
+.ajaxLoader {
+	display: none;
+	height: 30px;
+	padding: 5px;
+	text-align: center;
+}
+.ajaxLoader img {
+	height: 100%;
 }
 
 /* CAPTCHA ------------------------------------------ */

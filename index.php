@@ -47,7 +47,7 @@
 			
 			<div id=petitionMain>
 				<form id=petitionForm class="centered">
-					<p class="punchline red">Si vous soutenez l'équipe de France, soutenez l'Équipe, <strong>signez cette pétition</strong></p>
+					<p class="punchline red">Si vous soutenez l'équipe de France, <strong>signez cette pétition</strong></p>
 					<div class="inputs">
 						<input id=CSRFName name=CSRFName type="hidden" value="<?php echo $_SESSION["CSRF"];?>">
 						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
@@ -260,6 +260,7 @@
 						Chaque participant ne peut signer la pétition qu'une seule fois.
 					</p>
 					<button class="sign" title="Signez la pétition">Signez la pétition</button>
+					<div class="ajaxLoader"><img src="img/ajax-loader.gif"></div>
 				</form>
 				
 				<hr class="dotted">
