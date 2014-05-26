@@ -18,7 +18,7 @@
 		<div id=sectionLeft>
 			<h1>Pétition</h1>
 			<h2>
-				<b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,<br>
+				<b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,</b><br>
 				<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>,
 			</h2>
 			<p class="indent">Le 13 juillet 2014 se déroulera la finale de la Coupe du monde. Dans l'éventualité d'une victoire de la France, nous demandons à ce que <strong>le mardi 15 juillet soit déclaré jour férié.</strong> Le 14 juillet étant déjà comme chacun sait, un jour non travaillé.</p>
