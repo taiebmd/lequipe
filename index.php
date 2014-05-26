@@ -265,7 +265,9 @@
 				
 				<div id=pdf class="centered">
 					<p>Téléchargez, imprimez,<br>et remplissez la pétition pour faire<br>signer tous vos proches</p>
-					<button title="Téléchargez le pdf">Téléchargez le pdf</button>
+					<a href="petition.pdf" target="_blank">
+						<button title="Téléchargez le pdf">Téléchargez le pdf</button>
+					</a>
 				</div>
 				
 				<hr class="dotted">
@@ -310,6 +312,7 @@
 		
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js" type="text/javascript"></script>
+		<!--[if lt IE 8 ]> <script src="http://cdnjs.cloudflare.com/ajax/libs/json3/3.3.1/json3.min.js" type="text/javascript"></script> <![endif]-->
 		<script src="js/main.js" type="text/javascript"></script>
 		
 	</body>
