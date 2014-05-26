@@ -6,6 +6,7 @@ html {
 }
 
 body {
+	position: relative;
 	margin: 0;
 	padding: 40px 20px;
 	width: 960px;
@@ -94,6 +95,10 @@ p.indent strong {
 	text-decoration: underline;
 }
 p.legal {
+	position: absolute;
+	padding-right: 50px;
+	bottom: 40px;
+	width: 540px;
 	font-size: 10px;
 	font-style: italic;
 	text-align: justify;

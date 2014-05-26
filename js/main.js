@@ -244,7 +244,10 @@ $(document).ready(function() {
 						var status = $.parseJSON(e.responseText);
 						
 						if(status.errorMessage == 'CSRF invalid') invalidInput('', 'La session a expiré.<br>Veuillez rafraîchir la page.');
-						else if(status.errorMessage == 'reCAPTCHA invalid') invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
+						else if(status.errorMessage == 'reCAPTCHA invalid') {
+							invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
+							Recaptcha.reload();
+						}
 						else if(status.errorMessage == 'e-mail invalid') invalidInput('signEmail', 'Le champ "Email" est invalide.');
 						else if(status.errorMessage == 'e-mail exists') invalidInput('signEmail', 'Cette adresse email est déjà utilisée.');
 						else if(status.errorMessage == 'name invalid') invalidInput('signName', 'Le champ "Nom" est invalide.');
