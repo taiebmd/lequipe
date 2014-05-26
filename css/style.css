@@ -294,18 +294,6 @@ iframe {
 	font-size: 18px;
 }
 
-a.social-btn {
-	display: inline-block;
-	width: 30px; height: 30px;
-	line-height: 30px;
-	font-size: 1.2em;
-	font-weight: bold;
-	color: white;
-	text-decoration: none;
-	background-color: rgb(51, 51, 51);
-	border-radius: 50%;
-}
-
 /* COMMON CLASSES ------------------------------------------ */
 
 .centered { text-align: center; }
@@ -313,3 +301,25 @@ a.social-btn {
 .red { color: rgb(214, 0, 0); }
 .huge { font-size: 1.5em; }
 .clear { clear: both; }
+
+
+
+/* Add this relooking --------------------------------------*/
+.addthis_toolbox {
+	width: 72px; margin: 0 auto;
+}
+.addthis_32x32_style .at15t_twitter, .addthis_32x32_style .at15t_facebook  {
+	display: inline-block;
+	width: 30px; height: 30px;
+	line-height: 30px;
+	background: url(../img/social.png) no-repeat;
+}
+
+
+.addthis_32x32_style .at15t_facebook {
+	background-position: -35px 0 !important;
+}
+
+.addthis_32x32_style .at15t_twitter {
+	background-position: 0 0 !important;
+}

@@ -1,56 +1,68 @@
 ﻿<?php
-	error_reporting(0);
-	session_start();
-	$_SESSION["CSRF"] = 'CSRF_' . mt_rand();
+error_reporting(0);
+session_start();
+$_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>  <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html> <!--<![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html>
+	<!--<![endif]-->
 	<head>
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100" rel="stylesheet" type="text/css">
-		<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet">
 	</head>
 	<body>
-	
+
 		<div id=sectionLeft>
 			<h1>Pétition</h1>
-			<h2>
-				<b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,</b><br>
-				<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>,
-			</h2>
-			<p class="indent">Le 13 juillet 2014 se déroulera la finale de la Coupe du monde. Dans l'éventualité d'une victoire de la France, nous demandons à ce que <strong>le mardi 15 juillet soit déclaré jour férié.</strong> Le 14 juillet étant déjà comme chacun sait, un jour non travaillé.</p>
-			<p class="indent">La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un autre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.</p>
-			<p class="indent">C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition</p>
-			<p class="indent">Cordialement,</p>
-			
+			<h2><b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,</b>
+			<br>
+			<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>, </h2>
+			<p class="indent">
+				Le 13 juillet 2014 se déroulera la finale de la Coupe du monde. Dans l'éventualité d'une victoire de la France, nous demandons à ce que <strong>le mardi 15 juillet soit déclaré jour férié.</strong> Le 14 juillet étant déjà comme chacun sait, un jour non travaillé.
+			</p>
+			<p class="indent">
+				La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un autre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.
+			</p>
+			<p class="indent">
+				C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition
+			</p>
+			<p class="indent">
+				Cordialement,
+			</p>
+
 			<div class="centered">
 				<img class="logo-equipe" src="img/logo-equipe.png">
 			</div>
-			
-			<p class="legal">Ces informations, recueillies par SAS L’ÉQUIPE, font l’objet d’un traitement informatique destiné à l’élaboration et la présentation de la pétition au gouvernement. Les destinataires des données sont SAS L’ÉQUIPE. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à «LA PÉTITION» SAS L’ÉQUIPE 4 COURS DE L’ILE SEGUIN 92130 BOULOGNE BILLANCOURT. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.	</p>
+
+			<p class="legal">
+				Ces informations, recueillies par SAS L’ÉQUIPE, font l’objet d’un traitement informatique destiné à l’élaboration et la présentation de la pétition au gouvernement. Les destinataires des données sont SAS L’ÉQUIPE. Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, que vous pouvez exercer en vous adressant à «LA PÉTITION» SAS L’ÉQUIPE 4 COURS DE L’ILE SEGUIN 92130 BOULOGNE BILLANCOURT. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.
+			</p>
 		</div>
-		
+
 		<div id=sectionRight>
-		
+
 			<div id=progress class="centered">
 				<div id=counter></div>
 				<p id=remaining class="italic"></p>
 			</div>
-			
+
 			<div id=petitionMain>
 				<form id=petitionForm class="centered">
-					<p class="punchline red">Si vous soutenez l'équipe de France, <strong>signez cette pétition</strong></p>
+					<p class="punchline red">
+						Si vous soutenez l'équipe de France, <strong>signez cette pétition</strong>
+					</p>
 					<div class="inputs">
 						<div id=inputErrors></div>
-						
-						<input id=CSRFName name=CSRFName type="hidden" value="<?php echo $_SESSION["CSRF"];?>">
+
+						<input id=CSRFName name=CSRFName type="hidden" value="<?php echo $_SESSION["CSRF"]; ?>">
 						<input id=signName name=signName class="full" type="text" placeholder="Nom" required>
 						<input id=signFirstname name=signFirstname class="full" type="text" placeholder="Prénom" required>
 						<input id=signEmail name=signEmail class="full" type="email" placeholder="Email"required>
-						
+
 						<select id=signCountry name=signCountry class="half" required>
 							<option value="France" selected>France</option>
 							<option value="Afghanistan">Afghanistan</option>
@@ -246,78 +258,116 @@
 							<option value="Zambie">Zambie</option>
 							<option value="Zimbabwe">Zimbabwe</option>
 						</select>
-						
+
 						<input id=signZipcode name=signZipcode class="half" type="text" placeholder="Code Postal" required>
 					</div>
-					
+
 					<div id=captcha></div>
-					
+
 					<p class="instructions italic">
-						Tous les champs sont obligatoires.<br>
+						Tous les champs sont obligatoires.
+						<br>
 						Chaque participant ne peut signer la pétition qu'une seule fois.
 					</p>
-					<button class="sign" title="Signez la pétition">Signez la pétition</button>
-					<div class="ajaxLoader"><img src="img/ajax-loader.gif"></div>
+					<button class="sign" title="Signez la pétition">
+						Signez la pétition
+					</button>
+					<div class="ajaxLoader"><img src="img/ajax-loader.gif">
+					</div>
 				</form>
-				
+
 				<hr class="dotted">
-				
+
 				<div id=pdf class="centered">
-					<p>Téléchargez, imprimez,<br>et remplissez la pétition pour faire<br>signer tous vos proches</p>
+					<p>
+						Téléchargez, imprimez,
+						<br>
+						et remplissez la pétition pour faire
+						<br>
+						signer tous vos proches
+					</p>
 					<a href="petition.pdf" target="_blank">
-						<button title="Téléchargez le pdf">Téléchargez le pdf</button>
-					</a>
+					<button title="Téléchargez le pdf">
+						Téléchargez le pdf
+					</button> </a>
 				</div>
-				
+
 				<hr class="dotted">
-				
+
 			</div>
-			
+
 			<div id=petitionThanks class="centered">
-			
+
 				<p class="red">
-					<strong>
-						<span class="huge">Merci</span><br>
-						de votre soutien
-					</strong>
+					<strong> <span class="huge">Merci</span>
+					<br>
+					de votre soutien </strong>
 				</p>
 				<hr class="thick">
 				<p class="red">
-					Vous êtes le<br>
-					<strong id=senderNb class="huge"></strong><br>
-					participant<br>
+					Vous êtes le
+					<br>
+					<strong id=senderNb class="huge"></strong>
+					<br>
+					participant
+					<br>
 					à avoir signé en ligne !
 				</p>
 				<hr class="thick">
 				<p class="bottomMsg">
-					N'hésitez pas<br>
-					à faire signer<br>
-					cette pétition<br>
+					N'hésitez pas
+					<br>
+					à faire signer
+					<br>
+					cette pétition
+					<br>
 					autour de vous
 				</p>
-				
+
 			</div>
-			
+
 			<div id=social class="centered">
-				<p class="red">Partagez la pétition</p>
-				<a class="social-btn twitter" href="#" title="Partager sur Twitter">
-					<span class="fi-social-twitter"></span>
-				</a>
-				<a class="social-btn facebook" href="#" title="Partager sur Facebook">f</a>
+				<p class="red">
+					Partagez la pétition
+				</p>
+
+				<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+					<a class="addthis_button_twitter"></a>
+					<a class="addthis_button_facebook"></a>
+				</div>
+				<script type="text/javascript">
+					var addthis_config = {
+						"data_track_addressbar" : true
+					};
+				</script>
+				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-538353f3212340c8"></script>
+				<!-- AddThis Button END -->
 			</div>
-			
+
 		</div>
 		<div class="clear"></div>
-		
+
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 		<script src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js" type="text/javascript"></script>
 		<script src="js/json.js" type="text/javascript"></script>
 		<script src="js/main.js" type="text/javascript"></script>
-		
+
 		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-51180784-1', 'ddbparis.net'); ga('send', 'pageview');
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
+				function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			ga('create', 'UA-51180784-1', 'ddbparis.net');
+			ga('send', 'pageview');
 		</script>
-		
+
 	</body>
 </html>
