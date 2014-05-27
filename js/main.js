@@ -1,15 +1,15 @@
-'use strict';
+(function(){
 
 // create cookie
-function setCookie(cname, cvalue, exdays) {
+var setCookie = function(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime()+(exdays*24*60*60*1000));
 	var expires = "expires="+d.toGMTString();
 	document.cookie = cname + "=" + cvalue + "; " + expires;
-}
+},
 
 // get cookie
-function getCookie(cname) {
+getCookie = function(cname) {
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
 	for(var i=0; i<ca.length; i++) 
@@ -18,24 +18,24 @@ function getCookie(cname) {
 		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
 	}
 	return null;
-}
+},
 
 // delete cookie
-function deleteCookie(cname) {
+deleteCookie = function(cname) {
 	document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+},
 
 // create petition cookie
-function createCookie(data) {
+createCookie = function(data) {
 	var cookie = {
 		count: data.count,
 		email: data.email
 	};
 	setCookie('petitionEquipe', $.toJSON(cookie), 365);
-}
+},
 
 // build the ReCaptcha panel
-function createReCaptcha() {
+createReCaptcha = function() {
 	if(Recaptcha) {
 		Recaptcha.create("6LdIzOoSAAAAAG8WFK-egkYF-u4fpd36CqYkn3Om",
 			"captcha",
@@ -56,10 +56,10 @@ function createReCaptcha() {
 			}
 		);
 	}
-}
+},
 
 // show the thank you screen
-function showSuccess(nb) {
+showSuccess = function(nb) {
 
 	$('.invalid').removeClass('invalid');
 	
@@ -70,10 +70,10 @@ function showSuccess(nb) {
 	$('#petitionThanks').show();
 	
 	updateProgress();
-}
+},
 
 // refresh the progress header
-function drawProgress(nbSignatures) {
+drawProgress = function(nbSignatures) {
 
 	var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
 	
@@ -92,10 +92,10 @@ function drawProgress(nbSignatures) {
 	$('#remaining').html(remaining);
 	
 	$('#counter .counter-num').last('style', 'margin-right: 0'); // IE8 hack
-}
+},
 
 // get the nb of signatures
-function updateProgress() {
+updateProgress = function() {
 	$.ajax({
 		type: 'GET',
 		url: 'route.php',
@@ -108,52 +108,52 @@ function updateProgress() {
 			console.log('ERROR - GET count', e.responseText);
 		}
 	});
-}
+},
 
 // text regex
-function isText(str) {
+ isText = function(str) {
 	var regex = /^[a-zA-Z -]*$/;
 	return regex.test(str);
-}
+},
 
 // zipcode regex
-function isZipCode(str) {
+isZipCode = function(str) {
 	var regex = /^(F-)?((2[A|B])|[0-9]{2})[0-9]{3}$/;
 	return regex.test(str);
-}
+},
 
 // email regex
-function isEmail(str) {
+isEmail = function(str) {
 	var regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return regex.test(str);
-}
+},
 
 // clean errors from form
-function cleanForm() {
+cleanForm = function() {
 	$('#inputErrors').empty();
 	$('.invalid').removeClass('invalid');
-}
+},
 
 // invalid input field
-function invalidInput(id, msg) {
+invalidInput = function(id, msg) {
 	if(id != '') $('#'+id).addClass('invalid');
 	$('#inputErrors').append('<div class="inputError">'+msg+'</div>');
-}
+},
 
 // start ajax loader
-function startLoader() {
+startLoader = function() {
 	$('.sign').hide();
 	$('.ajaxLoader').show();
-}
+},
 
 // stop ajax loader
-function stopLoader() {
+ stopLoader = function() {
 	$('.ajaxLoader').hide();
 	$('.sign').show();
-}
+},
 
 // fix for placeholders in IE <= 9
-function placeholderFix() {
+placeholderFix = function() {
     if($('html').hasClass('.ie7, .ie8')){
         $("[placeholder]").focus(function(){
             if($(this).val()==$(this).attr("placeholder")) $(this).val("");
@@ -169,7 +169,7 @@ function placeholderFix() {
             })
         });
     }
-}
+};
 
 $(document).ready(function() {
 
@@ -272,3 +272,5 @@ $(document).ready(function() {
 	
 	var worker = setInterval(updateProgress, 5000);
 });
+
+})();
