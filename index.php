@@ -8,8 +8,7 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 <!--[if IE 8 ]>  <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html>
-	<!--<![endif]-->
+<html> <!--<![endif]-->
 	<head>
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet">

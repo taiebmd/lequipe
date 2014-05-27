@@ -14,7 +14,7 @@ getCookie = function(cname) {
 	var ca = document.cookie.split(';');
 	for(var i=0; i<ca.length; i++) 
 	{
-		var c = ca[i].trim();
+		var c = $.trim(ca[i]);
 		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
 	}
 	return null;
@@ -154,7 +154,7 @@ startLoader = function() {
 
 // fix for placeholders in IE <= 9
 placeholderFix = function() {
-    if($('html').hasClass('.ie7, .ie8')){
+    if($('html').hasClass('ie7') ||  $('html').hasClass('ie8') ||  $('html').hasClass('ie9')){
         $("[placeholder]").focus(function(){
             if($(this).val()==$(this).attr("placeholder")) $(this).val("");
         }).blur(function(){

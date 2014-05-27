@@ -314,7 +314,8 @@ iframe {
 	display: inline-block;
 	width: 30px; height: 30px;
 	line-height: 30px;
-	background: url(../img/social.png) no-repeat;
+	background-image: url(../img/social.png);
+	background-repeat: no-repeat;
 }
 
 
