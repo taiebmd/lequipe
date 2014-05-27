@@ -26,7 +26,7 @@ function checkEmailAdress($adresse) {
  * @return boolean true if name is valid
  */
 function checkValidName($name) {
-	if(preg_match("/^[[:alpha:]( |\.)]{2,99}$/",$name)) {
+	if(preg_match("/^[a-zA-Z0-9 -\.]{2,99}$/",$name)) {
 		return true;
 	}
 	

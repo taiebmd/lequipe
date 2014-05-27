@@ -1,5 +1,5 @@
 <?php
-require_once realpath(dirname(__FILE__)) . '/opsworks.php';
+require_once (realpath(dirname(__FILE__)) .'/../opsworks.php');
 
 class DBUtils {
 	private $con;
@@ -10,7 +10,7 @@ class DBUtils {
 		$database = $opsworks -> db -> database;
 		$username = $opsworks -> db -> username;
 		$password = $opsworks -> db -> password;
-
+		
 		$con = mysql_connect($hostname, $username, $password);
 		if (!$con)
 			die("Could not connect: " . mysql_error());
