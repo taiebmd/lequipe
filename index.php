@@ -12,7 +12,7 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 	<head>
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet">
-		<!--[if (lte IE 7)|!(IE)]><!--> <link href="css/style_ie7.css" rel="stylesheet"> <!--<![endif]-->
+		<!--[if lte IE 7 ]> <link href="css/style_ie7.css" rel="stylesheet"> <![endif]-->
 	</head>
 	<body>
 
