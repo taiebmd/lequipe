@@ -28,7 +28,7 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 				La Coupe du monde, c'est ce mois sacré où le temps s'arrête, où les hommes peuvent se maquiller sans peur du regard des autres, où les femmes peuvent crier <i>« Y'a faute là »</i>, où on troque la crise et le pouvoir d'achat contre des penalties et des coups de pieds arrêtés, où l'on ne se dit plus <i>« Bonjour »</i>, mais <i>« T'as vu le match hier ? »</i>, où on tremble devant un autre spectacle que celui de sa facture téléphonique, où on rêve à autre chose qu'à une belle voiture, et où enfin, on descend dans la rue juste parce qu'on est heureux.
 			</p>
 			<p class="indent">
-				C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition
+				C'est pour toutes ces raisons et bien d'autres encore, que nous L'Équipe ainsi que le peuple de France vous présentons cette pétition.
 			</p>
 			<p class="indent">
 				Cordialement,

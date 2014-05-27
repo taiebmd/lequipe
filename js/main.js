@@ -218,7 +218,7 @@ $(document).ready(function() {
 				invalidInput('signEmail', 'Le champ "Email" est invalide.');
 				invalid = true;
 			}
-			if(data.zipcode.length < 2 || data.zipcode.length > 999 || !isAlphaNumeric(data.zipcode)) {
+			if(data.zipcode.length < 2 || data.zipcode.length > 5 || !isAlphaNumeric(data.zipcode)) {
 				invalidInput('signZipcode', 'Le champ "Code Postal" est invalide.');
 				invalid = true;
 			}
