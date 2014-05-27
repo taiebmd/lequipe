@@ -41,7 +41,7 @@ function checkValidName($name) {
  * @return boolean true if the zip code is valid
  */
 function checkZipCode ($zip) {
-	if (preg_match("/^[a-zA-Z0-9 -]{2,99}$/",$zip)) {
+	if (preg_match("/^[0-9]{5}$/",$zip)) {
 		return true;
 	}
 	
