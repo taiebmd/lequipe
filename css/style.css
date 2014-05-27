@@ -169,7 +169,8 @@ input, select {
 select.half { 
 	width: 123px;
 	display: inline-block;
-	height: 34px;	
+	height: 32px;	
+	margin-top: 1px;
 }
 input.half { width: 101px; }
 
