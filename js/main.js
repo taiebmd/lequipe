@@ -116,9 +116,9 @@ function isText(str) {
 	return regex.test(str);
 }
 
-// alphanumeric regex
-function isAlphaNumeric(str) {
-	var regex = /^[a-zA-Z0-9 -]*$/;
+// zipcode regex
+function isZipCode(str) {
+	var regex = /^(F-)?((2[A|B])|[0-9]{2})[0-9]{3}$/;
 	return regex.test(str);
 }
 
@@ -218,7 +218,7 @@ $(document).ready(function() {
 				invalidInput('signEmail', 'Le champ "Email" est invalide.');
 				invalid = true;
 			}
-			if(data.zipcode.length < 2 || data.zipcode.length > 5 || !isAlphaNumeric(data.zipcode)) {
+			if(data.zipcode.length < 2 || data.zipcode.length > 5 || !isZipCode(data.zipcode)) {
 				invalidInput('signZipcode', 'Le champ "Code Postal" est invalide.');
 				invalid = true;
 			}
