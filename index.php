@@ -17,7 +17,9 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 	<body>
 
 		<div id=sectionLeft>
-			<h1>Pétition</h1>
+			<h1>
+				<img src="img/petition-title.png">
+			</h1>
 			<h2><b>M</b>ONSIEUR <b>LE PRÉSIDENT DE LA RÉPUBLIQUE,</b>
 			<br>
 			<b>M</b>ESDAMES ET <b>M</b>ESSIEURS <b>LES MINISTRES</b>, </h2>
