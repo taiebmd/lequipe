@@ -112,7 +112,7 @@ function updateProgress() {
 
 // text regex
 function isText(str) {
-	var regex = /^[a-zA-Z]*$/;
+	var regex = /^[a-zA-Z -]*$/;
 	return regex.test(str);
 }
 
@@ -270,5 +270,5 @@ $(document).ready(function() {
 		});
 	}
 	
-	var worker = setInterval(updateProgress, 2000);
+	var worker = setInterval(updateProgress, 5000);
 });
