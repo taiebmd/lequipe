@@ -249,7 +249,7 @@ $(document).ready(function() {
 						
 						if(status.errorMessage == 'CSRF invalid') invalidInput('', 'La session a expiré.<br>Veuillez rafraîchir la page.');
 						else if(status.errorMessage == 'reCAPTCHA invalid') {
-							invalidInput('recaptcha_response_field', 'Le reCAPTCHA est invalide.');
+							invalidInput('recaptcha_response_field', 'Recopie du code sécurité.');
 							Recaptcha.reload();
 						}
 						else if(status.errorMessage == 'e-mail invalid') invalidInput('signEmail', 'Le champ "Email" est invalide.');
