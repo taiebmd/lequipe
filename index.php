@@ -287,9 +287,10 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 						signer tous vos proches
 					</p>
 					<a href="petition.pdf" target="_blank">
-					<button class="pdfBtn" title="Téléchargez le pdf">
-						Téléchargez le pdf
-					</button> </a>
+						<button class="pdfBtn" title="Téléchargez le pdf">
+							Téléchargez le pdf
+						</button>
+					</a>
 				</div>
 
 				<hr class="dotted">
@@ -322,9 +323,11 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 					cette pétition
 					<br>
 					autour de vous
-					<button class="pdfBtn" title="Téléchargez le pdf">
-						Téléchargez le pdf
-					</button> </a>
+					<a href="petition.pdf" target="_blank">
+						<button class="pdfBtn" title="Téléchargez le pdf">
+							Téléchargez le pdf
+						</button>
+					</a>
 				</p>
 
 			</div>
