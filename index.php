@@ -344,7 +344,13 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 				</div>
 				<script type="text/javascript">
 					var addthis_config = {
-						"data_track_addressbar" : true
+						"data_track_addressbar" : false
+					};
+					
+					var addthis_share = {
+					  	"url": "http://lequipe.fr/petition",
+					  	"title": "Pétition - lequipe.fr",
+						"description": "Faites comme moi, engagez-vous à faire du 15 juillet un jour ferié"
 					};
 				</script>
 				<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-538353f3212340c8"></script>
