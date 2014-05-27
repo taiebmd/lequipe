@@ -50,8 +50,8 @@ createReCaptcha = function() {
 					 // IE8 hacks
 					var tr1 = $('#recaptcha_table tr').first();
 					tr1.attr('style', 'height: 64px');
-					tr1.children('td:nth-child(2)').attr('style', 'padding: 7px 0');
-					tr1.children('td:nth-child(3)').attr('style', 'padding: 19px 7px');
+					tr1.children('td:nth-child(2)').attr('style', 'padding: 24px 0');
+					tr1.children('td:nth-child(3)').attr('style', '');
 				}
 			}
 		);

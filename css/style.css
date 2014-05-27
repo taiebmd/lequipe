@@ -91,6 +91,10 @@ p.indent {
 	line-height: 20px;
 }
 p.indent strong {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	text-indent: 0;
 	font-size: 20px;
 	text-decoration: underline;
 	white-space: nowrap;
@@ -226,17 +230,17 @@ button.sign {
 }
 .recaptcha_image_cell {
 	display: block;
-	width: 155px !important;
-	height: 48px !important;
+	width: 204px !important;
+	height: 80px !important;
 	background-color: transparent !important;
 }
 #recaptcha_image {
-	width: 155px !important;
-	height: 48px !important;
+	width: 204px !important;
+	height: 80px !important;
 }
 #recaptcha_challenge_image {
-	width: 155px !important;
-	height: 48px !important;
+	width: 204px !important;
+	height: 80px !important;
 }
 #recaptcha_response_field {
 	padding: 0 5px;
@@ -246,7 +250,8 @@ button.sign {
 	outline: 0 !important;
 }
 #recaptcha_logo {
-	width: 48px; height: auto;
+	display: none;
+	/*width: 48px; height: auto;*/
 }
 iframe { 
 	display: none !important;
