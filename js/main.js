@@ -99,6 +99,7 @@ function updateProgress() {
 	$.ajax({
 		type: 'GET',
 		url: 'route.php',
+		timeout: 2000,
 		success: function(data) {
 			if(data.count) drawProgress(data.count);
 		},
