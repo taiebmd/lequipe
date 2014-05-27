@@ -100,6 +100,7 @@ function updateProgress() {
 		type: 'GET',
 		url: 'route.php',
 		timeout: 2000,
+		cache: false,
 		success: function(data) {
 			if(data.count) drawProgress(data.count);
 		},
@@ -234,6 +235,7 @@ $(document).ready(function() {
 					url: 'route.php',
 					data: data,
 					timeout: 2000,
+					cache: false,
 					success: function(data) {
 						if(data) {
 							createCookie(data);
