@@ -105,7 +105,7 @@ updateProgress = function() {
 			if(data.count) drawProgress(data.count);
 		},
 		error: function(e) {
-			console.log('ERROR - GET count', e.responseText);
+			//console.log('ERROR - GET count', e.responseText);
 		}
 	});
 },
@@ -244,7 +244,7 @@ $(document).ready(function() {
 						stopLoader();
 					},
 					error: function(e) {
-						console.log('ERROR - POST', e.responseText);
+						//console.log('ERROR - POST', e.responseText);
 						var status = $.parseJSON(e.responseText);
 						
 						if(status.errorMessage == 'CSRF invalid') invalidInput('', 'La session a expiré.<br>Veuillez rafraîchir la page.');

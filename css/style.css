@@ -180,8 +180,7 @@ input.half { width: 101px; }
 }
 
 button.sign {
-	position: relative;
-	max-width: 100%;
+	width: 200px;
 	color: white;
 	background-color: rgb(214, 0, 0);
 	padding: 10px 15px;
@@ -304,9 +303,8 @@ iframe {
 }
 .clear { clear: both; }
 
-
-
 /* Add this relooking --------------------------------------*/
+
 .addthis_toolbox {
 	width: 72px; margin: 0 auto;
 }
@@ -317,7 +315,6 @@ iframe {
 	background-image: url(../img/social.png);
 	background-repeat: no-repeat;
 }
-
 
 .addthis_32x32_style .at15t_facebook {
 	background-position: -35px 0 !important;
