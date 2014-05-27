@@ -4,8 +4,7 @@ session_start();
 $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 ?>
 <!doctype html>
-<!--[if lt IE 7 ]> <html class="ie7"> <![endif]-->
-<!--[if IE 7 ]> <html class="ie7"> <![endif]-->
+<!--[if lte IE 7 ]> <html class="ie7"> <![endif]-->
 <!--[if IE 8 ]>  <html class="ie8"> <![endif]-->
 <!--[if IE 9 ]> <html class="ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
@@ -13,6 +12,7 @@ $_SESSION["CSRF"] = 'CSRF_' . mt_rand();
 	<head>
 		<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100" rel="stylesheet" type="text/css">
 		<link href="css/style.css" rel="stylesheet">
+		<!--[if (lte IE 7)|!(IE)]><!--> <link href="css/style_ie7.css" rel="stylesheet"> <!--<![endif]-->
 	</head>
 	<body>
 

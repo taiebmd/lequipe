@@ -1,0 +1,15 @@
+#progress p {
+	font-size: 10px;
+}
+
+button.sign {
+	width: 200px;
+	padding: 10px 10px;
+	font-size: 18px;
+}
+
+.pdfBtn {
+	width: 160px;
+	padding: 8px 8px;
+	font-size: 12px;
+}

@@ -184,6 +184,13 @@ $(document).ready(function() {
 		createReCaptcha();
 		updateProgress();
 		
+		// IE7 trigger hack
+		if($('html').hasClass('ie7')) {
+			$('#petitionForm .sign').click(function() {
+				$('#petitionForm').trigger('submit');
+			});
+		}
+		
 		// form submit
 		$('#petitionForm').submit(function(e) {
 		
