@@ -1,0 +1,8 @@
+p.indent strong {
+	font-size: 26px;
+	word-spacing: 1px;
+}
+
+#pdf p {
+	font-size: 12px;
+}
