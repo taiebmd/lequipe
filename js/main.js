@@ -70,9 +70,9 @@ showSuccess = function(nb) {
 
 // refresh the progress header
 drawProgress = function(nbSignatures) {
+	var totalSignatures = 15000;
+	var remaining = (nbSignatures>totalSignatures) ? 'Notre but est atteint' : 'Encore ' + (totalSignatures-nbSignatures) + ' signatures pour atteindre notre but';
 
-	var remaining = (nbSignatures>1000000) ? 'Notre but est atteint' : 'Encore ' + (1000000-nbSignatures) + ' signatures pour atteindre notre but';
-	
 	var split = (nbSignatures+'').split('');
 	var counters = '';
 	
