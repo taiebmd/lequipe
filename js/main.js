@@ -27,11 +27,7 @@ deleteCookie = function(cname) {
 
 // create petition cookie
 createCookie = function(data) {
-	var cookie = {
-		count: data.count,
-		email: data.email
-	};
-	setCookie('petitionEquipe', $.toJSON(cookie), 365);
+	setCookie('petitionEquipe', $.toJSON(data), 365);
 },
 
 // build the ReCaptcha panel
