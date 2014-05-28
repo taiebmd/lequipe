@@ -97,6 +97,9 @@ p.indent strong {
 	text-decoration: underline;
 	white-space: nowrap;
 }
+p.indent i {
+	white-space: nowrap;
+}
 p.legal {
     font-size: 10px;
     font-style: italic;
